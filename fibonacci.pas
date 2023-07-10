@@ -23,11 +23,22 @@ begin
 	writeLn('Fibonacci: ', Fibonacci)
 end;
 
+label
+	Return;
+
 var
 	n: integer;
 
 begin
+	Return:
 	write('Enter a number: ');
+	{$I-}
 	readLn(n);
-	Fibonacci(n)
+	if IOResult = 0	then	
+		Fibonacci(n)
+	else
+	begin
+		writeLn('Wrong input');
+		goto Return
+	end
 end.
